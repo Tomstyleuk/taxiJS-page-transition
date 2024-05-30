@@ -2,6 +2,10 @@ import { Renderer } from '@unseenco/taxi';
 
 const inViewEle = document.querySelector('.inView')
 
+function scrollToTop() {
+    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
+}
+
 export default class CustomRenderer extends Renderer {
     /**
      * Run code that should only happen once for your site
@@ -14,6 +18,7 @@ export default class CustomRenderer extends Renderer {
 
     onEnter() {
         console.log('onEnter');
+        scrollToTop()
 
         if (inViewEle.classList.contains("loaded") == false) {
             inViewEle.classList.add('loaded')

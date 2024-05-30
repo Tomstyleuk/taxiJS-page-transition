@@ -6,9 +6,8 @@ const blocks = document.querySelectorAll('.block')
 let inViewEle
 let tl = gsap.timeline()
 
-function scrollToTop() {
-    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
-}
+const getRandomDelay = () => Math.random() * 0.5;
+
 
 // https://taxi.js.org/transitions/
 export default class MyTransition extends Transition {
@@ -33,7 +32,7 @@ export default class MyTransition extends Transition {
         tl.to(blocks, {
             duration: 1,
             height: '100%',
-            stagger: 0.055,
+            stagger: getRandomDelay,
             ease: "power3.inOut",
         })
 
@@ -55,11 +54,10 @@ export default class MyTransition extends Transition {
         tl.to(blocks, {
             duration: 1,
             height: '0',
-            stagger: 0.055,
+            stagger: getRandomDelay,
             ease: "power3.inOut"
         })
 
-        scrollToTop()
         setTimeout(() => {
             inViewEle.classList.add('loaded')
             done()
