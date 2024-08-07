@@ -10,9 +10,8 @@ body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5rem;
   scroll-behavior: smooth;
-  /* overflow: hidden; */
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 body,
@@ -120,7 +119,7 @@ a {
 }
 
 section {
-  padding: 50vh 0 0;
+  padding: 30vh 0 0;
 }
 
 .intro {
@@ -158,10 +157,24 @@ section {
   opacity: 0;
   will-change: opacity, transform;
   transform: translateY(50px);
-  transition: all 0.8s ease;
+  /* transition: opacity, transform 0.8s ease; */
+  transition: opacity .8s cubic-bezier(.22, 1, .36, 1) .2s, transform 1.4s cubic-bezier(.22, 1, .36, 1) .2s;
+  ;
 }
 
 .inView.loaded {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media only screen and (max-width: 821px) {
+  section {
+    padding: 10vh 0;
+  }
+
+  .intro {
+    font-size: 40px;
+    line-height: 42px;
+    margin-bottom: 30px;
+  }
 }
